@@ -9,7 +9,7 @@ logging.basicConfig(
 
 __version__ = '0.1.0'
 
-if PY_ENV == 'PRODUCTION':
+if PY_ENV.upper() == 'PRODUCTION':
     from production import start_bot
 else:
     from development import start_bot
