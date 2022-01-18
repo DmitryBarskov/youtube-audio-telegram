@@ -3,7 +3,8 @@ import __init__
 from telegram import Update
 from telegram.ext import (Updater, CallbackContext, CommandHandler)
 
-from environment_variables import (TELEGRAM_API_TOKEN, PORT, start_bot)
+from environment_variables import (TELEGRAM_API_TOKEN, PORT)
+from __init__ import start_bot
 
 
 def start(update: Update, context: CallbackContext):
