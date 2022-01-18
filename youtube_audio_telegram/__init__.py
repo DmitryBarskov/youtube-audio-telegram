@@ -1,10 +1,6 @@
 import logging
 
-from environs import Env
-
-env = Env()
-env.read_env()
-TELEGRAM_API_TOKEN = env('TELEGRAM_API_TOKEN')
+from environment_variables import PY_ENV
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -12,3 +8,8 @@ logging.basicConfig(
 )
 
 __version__ = '0.1.0'
+
+if PY_ENV == 'PRODUCTION':
+    from production import start_bot
+else:
+    from development import start_bot
