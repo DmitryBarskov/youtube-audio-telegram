@@ -2,6 +2,7 @@ import __init__
 
 import re
 import io
+import random
 
 from pytube import YouTube
 from telegram import Update
@@ -36,10 +37,14 @@ def youtube_video(update: Update, context: CallbackContext):
         )
 
 
+def random_emoji() -> str:
+    return random.choice('😎🥰❤️😉😘😍😊☺️🙂📺😋😚')
+
+
 def start(update: Update, context: CallbackContext):
     context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text="I'm a bot, please talk to me!"
+        text="I'm a bot, send me a video from youtube! " + random_emoji()
     )
 
 
@@ -48,6 +53,7 @@ def main():
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(MessageHandler(Filters.regex(YT_PATTERN), youtube_video))
+    updater.dispatcher.add_handler(MessageHandler(Filters.text, start))
 
     start_bot(updater)
 
