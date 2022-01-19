@@ -10,6 +10,8 @@ logging.basicConfig(
 __version__ = '0.1.0'
 
 if PY_ENV.upper() == 'PRODUCTION':
+    logging.info('Loading production environment')
     from production import start_bot
 else:
+    logging.info('Loading development environment')
     from development import start_bot
