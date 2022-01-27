@@ -7,7 +7,8 @@ authors = ["Dmitry Barskov <dmitry.barskov@flatstack.com>"]
 [tool.poetry.dependencies]
 python = "3.9.9"
 python-telegram-bot = "^13.10"
-pytube = "^11.0.2"
+# pytube = "^11.0.2"
+pytube = {git = "https://github.com/ehsanbehdad/Pytube"}
 environs = "^9.4.0"
 
 [tool.poetry.dev-dependencies]
